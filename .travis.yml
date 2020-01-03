@@ -16,6 +16,6 @@ after_success:
   - docker build -t snly2386/multip-nginx ./nginx
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin 
   - docker push snly2386/multip-client
-  - docker push snly2386/multip-server
   - docker push snly2386/multip-worker
+  - docker push snly2386/multip-server
   - docker push snly2386/multip-nginx
