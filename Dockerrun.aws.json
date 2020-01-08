@@ -1,0 +1,36 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "snly2386/multip-client",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "server",
+      "image": "snly2386/multip-server",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "snly2386/multip-worker",
+      "hostname": "worker",
+      "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "snly2386/multip-nginx",
+      "hostname": "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["server", "client"]
+    }
+  ]
+}

@@ -19,3 +19,18 @@ after_success:
   - docker push snly2386/multip-worker
   - docker push snly2386/multip-server
   - docker push snly2386/multip-nginx
+
+deploy:
+  # edge: true
+  region: us-east-1
+  app: multi-docker
+  env: MultiDocker-env
+  provider: elasticbeanstalk
+  bucket_name: arn:aws:s3:::elasticbeanstalk-us-east-1-311342128241
+  bucket_path: multi-container
+  on: 
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET
+  
+
