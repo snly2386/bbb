@@ -5,25 +5,30 @@
       "name": "client",
       "image": "snly2386/multip-client",
       "hostname": "client",
+      "memory": 128,
       "essential": false
     },
     {
       "name": "server",
       "image": "snly2386/multip-server",
       "hostname": "api",
-      "essential": false
+      "essential": false,
+      "memory": 128
+            
     },
     {
       "name": "worker",
       "image": "snly2386/multip-worker",
       "hostname": "worker",
-      "essential": false
+      "essential": false,
+      "memory": 128
     },
     {
       "name": "nginx",
       "image": "snly2386/multip-nginx",
       "hostname": "nginx",
       "essential": true,
+      "memory": 128,
       "portMappings": [
         {
           "hostPort": 80,
